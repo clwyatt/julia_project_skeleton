@@ -1,3 +1,3 @@
 #!/bin/bash
 
-JULIA_PKGDIR=${PWD}/packages julia
+JULIA_PKGDIR=${PWD}/packages julia $@
