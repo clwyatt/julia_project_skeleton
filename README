@@ -1,1 +1,19 @@
-This is a test of per project julia package dependency tracking.
+This is a skeleton for julia based projects. It sets up per-project package dependency tracking similar to virtualenv.
+
+To use the skeleton to start a project you can do:
+git clone --depth=1 git@github.com:clwyatt/julia_project_skeleton mynewprojectdir
+rm -rf mynewprojectdir/.git
+
+Run julia with JULIA_PKGDIR=mynewprojectdir/packages julia
+
+The packages directory contains a subdir with a semantic version e.g. v0.3 with a REQUIRE file in it listing the packages
+
+The included .gitignore is setup track REQUIRE but ignore everything else in that directory.
+
+The setup script (setup.jl) simply does 
+Pkg.init()
+Pkg.update()
+to pull the right versions and build them where julia expects. This can be rerun using 
+JULIA_PKGDIR=mynewprojectdir/packages julia setup.jl
+
+
